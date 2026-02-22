@@ -1,0 +1,63 @@
+title: Settings
+fields:
+  -
+    handle: site_name
+    field:
+      type: text
+      display: 'Site Name'
+  -
+    handle: site_description
+    field:
+      type: textarea
+      display: 'Site Description'
+  -
+    handle: maintenance_mode
+    field:
+      type: toggle
+      display: 'Maintenance Mode'
+      default: false
+  -
+    handle: analytics_id
+    field:
+      type: text
+      display: 'Analytics ID'
+  -
+    handle: logo
+    field:
+      type: assets
+      display: Logo
+      container: assets
+      max_files: 1
+  -
+    handle: footer_links
+    field:
+      type: grid
+      display: 'Footer Links'
+      fields:
+        -
+          handle: label
+          field:
+            type: text
+        -
+          handle: url
+          field:
+            type: link
+  -
+    handle: social_links
+    field:
+      type: grid
+      display: 'Social Links'
+      fields:
+        -
+          handle: platform
+          field:
+            type: select
+            options:
+              twitter: Twitter
+              facebook: Facebook
+              instagram: Instagram
+              linkedin: LinkedIn
+        -
+          handle: url
+          field:
+            type: text

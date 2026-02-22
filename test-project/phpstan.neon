@@ -1,0 +1,14 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+    - vendor/ibelieve/larastan-statamic/extension.neon
+
+parameters:
+    paths:
+        - app/
+
+    level: 5
+
+    statamic:
+        blueprintPaths:
+            - resources/blueprints
+        strictMode: true
