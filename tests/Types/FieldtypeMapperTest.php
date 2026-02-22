@@ -220,6 +220,15 @@ final class FieldtypeMapperTest extends TestCase
         $this->assertInstanceOf(MixedType::class, $type);
     }
 
+    public function test_maps_computed_to_mixed(): void
+    {
+        $field = new FieldDefinition('brand_slug', 'computed');
+
+        $type = $this->mapper->mapToType($field);
+
+        $this->assertInstanceOf(MixedType::class, $type);
+    }
+
     public function test_custom_fieldtype_mapping(): void
     {
         $mapper = new FieldtypeMapper(['my_type' => 'App\MyType']);

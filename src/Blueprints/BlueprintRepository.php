@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace IBelieve\LarastanStatamic\Blueprints;
 
+use IBelieve\LarastanStatamic\Computed\ComputedFieldScanner;
+
 /**
  * @phpstan-import-type ContentType from BlueprintLocator
  */
@@ -15,6 +17,7 @@ final class BlueprintRepository
     public function __construct(
         private readonly BlueprintLocator $locator,
         private readonly BlueprintParser $parser,
+        private readonly ComputedFieldScanner $computedFieldScanner,
     ) {}
 
     /**
@@ -91,6 +94,12 @@ final class BlueprintRepository
                 $fields,
             );
         }
+
+        // Computed fields only apply to entries
+        $this->cachedFields['entry'] = array_merge(
+            $this->cachedFields['entry'],
+            $this->computedFieldScanner->scan(),
+        );
 
         return $this->cachedFields;
     }

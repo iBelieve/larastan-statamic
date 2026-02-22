@@ -4,12 +4,15 @@ parameters:
             - %rootDir%/../../../resources/blueprints
         customFieldtypes: []
         strictMode: false
+        scanPaths:
+            - %rootDir%/../../../app
 
 parametersSchema:
     statamic: structure([
         blueprintPaths: listOf(string())
         customFieldtypes: arrayOf(string())
         strictMode: bool()
+        scanPaths: listOf(string())
     ])
 
 services:
@@ -20,6 +23,11 @@ services:
 
     -
         class: IBelieve\LarastanStatamic\Blueprints\BlueprintParser
+
+    -
+        class: IBelieve\LarastanStatamic\Computed\ComputedFieldScanner
+        arguments:
+            scanPaths: %statamic.scanPaths%
 
     -
         class: IBelieve\LarastanStatamic\Blueprints\BlueprintRepository
