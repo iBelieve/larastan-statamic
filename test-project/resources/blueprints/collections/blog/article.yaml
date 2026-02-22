@@ -1,0 +1,137 @@
+title: Article
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: Content
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              display: Title
+              required: true
+          -
+            handle: slug
+            field:
+              type: slug
+              display: Slug
+              localizable: true
+          -
+            handle: body
+            field:
+              type: markdown
+              display: Body
+              localizable: true
+          -
+            handle: introduction
+            field:
+              type: textarea
+              display: Introduction
+          -
+            handle: featured
+            field:
+              type: toggle
+              display: Featured
+              default: false
+          -
+            handle: reading_time
+            field:
+              type: integer
+              display: 'Reading Time (minutes)'
+          -
+            handle: rating
+            field:
+              type: float
+              display: Rating
+  media:
+    display: Media
+    sections:
+      -
+        display: Images
+        fields:
+          -
+            handle: hero_image
+            field:
+              type: assets
+              display: 'Hero Image'
+              container: assets
+              max_files: 1
+          -
+            handle: gallery
+            field:
+              type: assets
+              display: Gallery
+              container: assets
+          -
+            handle: video_url
+            field:
+              type: video
+              display: 'Video URL'
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        display: Metadata
+        fields:
+          -
+            handle: author
+            field:
+              type: users
+              display: Author
+              max_items: 1
+          -
+            handle: coauthors
+            field:
+              type: users
+              display: Co-Authors
+          -
+            handle: publish_date
+            field:
+              type: date
+              display: 'Publish Date'
+              time_enabled: false
+          -
+            handle: tags
+            field:
+              type: terms
+              display: Tags
+              taxonomies:
+                - tags
+          -
+            handle: related_posts
+            field:
+              type: entries
+              display: 'Related Posts'
+              collections:
+                - blog
+          -
+            handle: category
+            field:
+              type: select
+              display: Category
+              options:
+                news: News
+                tutorial: Tutorial
+                review: Review
+          -
+            handle: status_label
+            field:
+              type: button_group
+              display: 'Status Label'
+              options:
+                draft: Draft
+                review: Review
+                published: Published
+          -
+            handle: template
+            field:
+              type: template
+              display: Template
+              localizable: true
+          -
+            handle: color_theme
+            field:
+              type: color
+              display: 'Color Theme'

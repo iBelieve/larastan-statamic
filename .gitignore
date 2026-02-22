@@ -2,3 +2,17 @@
 /composer.lock
 /.phpunit.cache/
 /.phpunit.result.cache
+/test-project/vendor/
+/test-project/node_modules/
+/test-project/composer.lock
+/test-project/public/vendor/
+/test-project/public/build/
+/test-project/public/hot
+/test-project/public/storage
+/test-project/storage/*.key
+/test-project/.env
+/test-project/.env.backup
+/test-project/.env.production
+/test-project/.phpunit.cache/
+/test-project/.phpunit.result.cache
+/test-project/database/database.sqlite

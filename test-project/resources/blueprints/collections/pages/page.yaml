@@ -1,0 +1,78 @@
+title: Page
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: Content
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              display: Title
+              required: true
+          -
+            handle: content
+            field:
+              type: bard
+              display: Content
+              localizable: true
+              sets:
+                text:
+                  display: Text
+                  sets:
+                    text:
+                      display: Text
+                      fields:
+                        -
+                          handle: text
+                          field:
+                            type: text
+                image:
+                  display: Image
+                  sets:
+                    image:
+                      display: Image
+                      fields:
+                        -
+                          handle: image
+                          field:
+                            type: assets
+                            container: assets
+                            max_files: 1
+          -
+            handle: hero_image
+            field:
+              type: assets
+              display: 'Hero Image'
+              container: assets
+              max_files: 1
+          -
+            handle: template
+            field:
+              type: template
+              display: Template
+              localizable: true
+          -
+            handle: show_sidebar
+            field:
+              type: toggle
+              display: 'Show Sidebar'
+              default: true
+  seo:
+    display: SEO
+    sections:
+      -
+        display: 'SEO Settings'
+        fields:
+          -
+            handle: meta_title
+            field:
+              type: text
+              display: 'Meta Title'
+          -
+            handle: meta_description
+            field:
+              type: textarea
+              display: 'Meta Description'

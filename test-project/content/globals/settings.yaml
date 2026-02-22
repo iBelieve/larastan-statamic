@@ -1,0 +1,4 @@
+title: Settings
+data:
+  site_name: 'Test Site'
+  maintenance_mode: false

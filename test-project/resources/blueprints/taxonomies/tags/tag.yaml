@@ -1,0 +1,23 @@
+title: Tag
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+      required: true
+  -
+    handle: description
+    field:
+      type: textarea
+      display: Description
+  -
+    handle: icon
+    field:
+      type: text
+      display: Icon
+  -
+    handle: color
+    field:
+      type: color
+      display: Color
