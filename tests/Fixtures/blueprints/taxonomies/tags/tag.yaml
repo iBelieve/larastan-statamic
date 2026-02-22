@@ -1,0 +1,14 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          - handle: description
+            field:
+              type: textarea
+          - handle: icon
+            field:
+              type: assets
+              container: images
+              max_items: 1

@@ -1,0 +1,62 @@
+parameters:
+    statamic:
+        blueprintPaths:
+            - %rootDir%/../../../resources/blueprints
+        customFieldtypes: []
+        strictMode: false
+
+parametersSchema:
+    statamic: structure([
+        blueprintPaths: listOf(string())
+        customFieldtypes: arrayOf(string())
+        strictMode: bool()
+    ])
+
+services:
+    -
+        class: IBelieve\LarastanStatamic\Blueprints\BlueprintLocator
+        arguments:
+            blueprintPaths: %statamic.blueprintPaths%
+
+    -
+        class: IBelieve\LarastanStatamic\Blueprints\BlueprintParser
+
+    -
+        class: IBelieve\LarastanStatamic\Blueprints\BlueprintRepository
+
+    -
+        class: IBelieve\LarastanStatamic\Types\FieldtypeMapper
+        arguments:
+            customFieldtypes: %statamic.customFieldtypes%
+
+    -
+        class: IBelieve\LarastanStatamic\Properties\BlueprintPropertyExtension
+        tags:
+            - phpstan.broker.propertiesClassReflectionExtension
+
+    -
+        class: IBelieve\LarastanStatamic\ReturnTypes\EntryQueryBuilderExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+    -
+        class: IBelieve\LarastanStatamic\ReturnTypes\GlobalSetFindExtension
+        tags:
+            - phpstan.broker.dynamicStaticMethodReturnTypeExtension
+
+    -
+        class: IBelieve\LarastanStatamic\ReturnTypes\CollectionFindExtension
+        tags:
+            - phpstan.broker.dynamicStaticMethodReturnTypeExtension
+
+    -
+        class: IBelieve\LarastanStatamic\ReturnTypes\EntryFacadeExtension
+        tags:
+            - phpstan.broker.dynamicStaticMethodReturnTypeExtension
+
+    -
+        class: IBelieve\LarastanStatamic\Rules\NoUndefinedBlueprintFieldRule
+
+conditionalTags:
+    IBelieve\LarastanStatamic\Rules\NoUndefinedBlueprintFieldRule:
+        phpstan.rules.rule: %statamic.strictMode%
