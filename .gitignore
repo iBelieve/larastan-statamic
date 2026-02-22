@@ -2,5 +2,3 @@
 /composer.lock
 /.phpunit.cache/
 /.phpunit.result.cache
-/test-project/composer.lock
-/test-project/database/database.sqlite
