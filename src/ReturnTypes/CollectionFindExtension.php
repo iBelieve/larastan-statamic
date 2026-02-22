@@ -40,7 +40,7 @@ final class CollectionFindExtension implements DynamicStaticMethodReturnTypeExte
         return match ($methodReflection->getName()) {
             'find', 'findByHandle' => new UnionType([
                 new ObjectType('Statamic\Entries\Collection'),
-                new NullType(),
+                new NullType,
             ]),
             'findOrFail' => new ObjectType('Statamic\Entries\Collection'),
             default => null,

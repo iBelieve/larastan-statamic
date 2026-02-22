@@ -61,14 +61,14 @@ final class EntryQueryBuilderExtension implements DynamicMethodReturnTypeExtensi
 
         return match ($methodName) {
             'get' => new GenericObjectType('Illuminate\Support\Collection', [
-                new IntegerType(),
+                new IntegerType,
                 new ObjectType($modelClass),
             ]),
-            'first' => new UnionType([new ObjectType($modelClass), new NullType()]),
-            'find' => new UnionType([new ObjectType($modelClass), new NullType()]),
+            'first' => new UnionType([new ObjectType($modelClass), new NullType]),
+            'find' => new UnionType([new ObjectType($modelClass), new NullType]),
             'firstOrFail' => new ObjectType($modelClass),
-            'count' => new IntegerType(),
-            'exists' => new BooleanType(),
+            'count' => new IntegerType,
+            'exists' => new BooleanType,
             default => null,
         };
     }

@@ -62,7 +62,7 @@ final class ContentClassMap
     }
 
     /**
-     * @param ContentType $contentType
+     * @param  ContentType  $contentType
      * @return array<string, Type>
      */
     public static function getUniversalProperties(string $contentType): array
@@ -80,61 +80,61 @@ final class ContentClassMap
     private static function buildUniversalProperties(): array
     {
         $carbonType = new ObjectType('Carbon\Carbon');
-        $stringOrNull = new UnionType([new StringType(), new NullType()]);
+        $stringOrNull = new UnionType([new StringType, new NullType]);
 
         return [
             'entry' => [
-                'id' => new StringType(),
-                'title' => new StringType(),
-                'slug' => new StringType(),
-                'url' => new StringType(),
+                'id' => new StringType,
+                'title' => new StringType,
+                'slug' => new StringType,
+                'url' => new StringType,
                 'uri' => $stringOrNull,
-                'permalink' => new StringType(),
+                'permalink' => new StringType,
                 'date' => $carbonType,
-                'published' => new BooleanType(),
-                'status' => new StringType(),
-                'locale' => new StringType(),
+                'published' => new BooleanType,
+                'status' => new StringType,
+                'locale' => new StringType,
                 'last_modified' => $carbonType,
-                'edit_url' => new StringType(),
+                'edit_url' => new StringType,
                 'api_url' => $stringOrNull,
                 'collection' => new ObjectType('Statamic\Entries\Collection'),
             ],
             'term' => [
-                'id' => new StringType(),
-                'title' => new StringType(),
-                'slug' => new StringType(),
-                'url' => new StringType(),
+                'id' => new StringType,
+                'title' => new StringType,
+                'slug' => new StringType,
+                'url' => new StringType,
                 'uri' => $stringOrNull,
-                'permalink' => new StringType(),
-                'locale' => new StringType(),
-                'edit_url' => new StringType(),
+                'permalink' => new StringType,
+                'locale' => new StringType,
+                'edit_url' => new StringType,
                 'api_url' => $stringOrNull,
             ],
             'asset' => [
-                'id' => new StringType(),
-                'url' => new StringType(),
-                'permalink' => new StringType(),
-                'path' => new StringType(),
-                'filename' => new StringType(),
-                'basename' => new StringType(),
-                'extension' => new StringType(),
-                'size' => new IntegerType(),
-                'size_bytes' => new IntegerType(),
+                'id' => new StringType,
+                'url' => new StringType,
+                'permalink' => new StringType,
+                'path' => new StringType,
+                'filename' => new StringType,
+                'basename' => new StringType,
+                'extension' => new StringType,
+                'size' => new IntegerType,
+                'size_bytes' => new IntegerType,
                 'last_modified' => $carbonType,
-                'mime_type' => new StringType(),
-                'edit_url' => new StringType(),
+                'mime_type' => new StringType,
+                'edit_url' => new StringType,
                 'api_url' => $stringOrNull,
-                'is_image' => new BooleanType(),
-                'is_audio' => new BooleanType(),
-                'is_video' => new BooleanType(),
-                'width' => new UnionType([new IntegerType(), new NullType()]),
-                'height' => new UnionType([new IntegerType(), new NullType()]),
+                'is_image' => new BooleanType,
+                'is_audio' => new BooleanType,
+                'is_video' => new BooleanType,
+                'width' => new UnionType([new IntegerType, new NullType]),
+                'height' => new UnionType([new IntegerType, new NullType]),
             ],
             'global' => [
-                'id' => new StringType(),
-                'handle' => new StringType(),
-                'title' => new StringType(),
-                'locale' => new StringType(),
+                'id' => new StringType,
+                'handle' => new StringType,
+                'title' => new StringType,
+                'locale' => new StringType,
                 'api_url' => $stringOrNull,
             ],
         ];

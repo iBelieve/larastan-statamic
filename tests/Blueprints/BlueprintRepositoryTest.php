@@ -16,9 +16,9 @@ final class BlueprintRepositoryTest extends TestCase
     protected function setUp(): void
     {
         $locator = new BlueprintLocator([
-            __DIR__ . '/../Fixtures/blueprints',
+            __DIR__.'/../Fixtures/blueprints',
         ]);
-        $parser = new BlueprintParser();
+        $parser = new BlueprintParser;
         $this->repository = new BlueprintRepository($locator, $parser);
     }
 

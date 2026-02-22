@@ -14,7 +14,7 @@ final class BlueprintLocatorTest extends TestCase
     protected function setUp(): void
     {
         $this->locator = new BlueprintLocator([
-            __DIR__ . '/../Fixtures/blueprints',
+            __DIR__.'/../Fixtures/blueprints',
         ]);
     }
 
@@ -88,7 +88,7 @@ final class BlueprintLocatorTest extends TestCase
     public function test_handles_multiple_blueprint_paths(): void
     {
         $locator = new BlueprintLocator([
-            __DIR__ . '/../Fixtures/blueprints',
+            __DIR__.'/../Fixtures/blueprints',
             '/nonexistent/path',
         ]);
 

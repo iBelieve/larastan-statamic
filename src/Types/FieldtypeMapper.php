@@ -47,7 +47,7 @@ final class FieldtypeMapper
     private array $customFieldtypes;
 
     /**
-     * @param array<string, string> $customFieldtypes
+     * @param  array<string, string>  $customFieldtypes
      */
     public function __construct(array $customFieldtypes = [])
     {
@@ -60,22 +60,22 @@ final class FieldtypeMapper
 
         // String types
         if (isset(self::STRING_TYPES[$fieldtype])) {
-            return new StringType();
+            return new StringType;
         }
 
         // Boolean
         if ($fieldtype === 'toggle') {
-            return new BooleanType();
+            return new BooleanType;
         }
 
         // Integer types
         if ($fieldtype === 'integer' || $fieldtype === 'range') {
-            return new IntegerType();
+            return new IntegerType;
         }
 
         // Float
         if ($fieldtype === 'float') {
-            return new FloatType();
+            return new FloatType;
         }
 
         // Date → Carbon
@@ -90,17 +90,17 @@ final class FieldtypeMapper
 
         // Select-like (can be string or int)
         if (in_array($fieldtype, ['select', 'button_group', 'radio'], true)) {
-            return new UnionType([new StringType(), new IntegerType()]);
+            return new UnionType([new StringType, new IntegerType]);
         }
 
         // Array types
         if (in_array($fieldtype, ['checkboxes', 'array', 'list', 'bard', 'replicator', 'grid', 'structures'], true)) {
-            return new ArrayType(new MixedType(), new MixedType());
+            return new ArrayType(new MixedType, new MixedType);
         }
 
         // Reference types that return strings
         if (in_array($fieldtype, ['collections', 'taxonomies', 'sites', 'form'], true)) {
-            return new StringType();
+            return new StringType;
         }
 
         // Custom fieldtype overrides
@@ -109,7 +109,7 @@ final class FieldtypeMapper
         }
 
         // Unknown fieldtype → mixed
-        return new MixedType();
+        return new MixedType;
     }
 
     private function mapRelationshipType(FieldDefinition $field, string $className): Type
@@ -117,10 +117,10 @@ final class FieldtypeMapper
         $objectType = new ObjectType($className);
 
         if ($field->isSingleRelationship()) {
-            return new UnionType([$objectType, new NullType()]);
+            return new UnionType([$objectType, new NullType]);
         }
 
         // Multiple items: returns an array of objects
-        return new ArrayType(new IntegerType(), $objectType);
+        return new ArrayType(new IntegerType, $objectType);
     }
 }

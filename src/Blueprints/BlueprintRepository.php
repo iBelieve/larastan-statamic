@@ -18,7 +18,7 @@ final class BlueprintRepository
     ) {}
 
     /**
-     * @param ContentType $contentType
+     * @param  ContentType  $contentType
      * @return list<FieldDefinition>
      */
     public function getFieldsForContentType(string $contentType): array
@@ -29,7 +29,7 @@ final class BlueprintRepository
     }
 
     /**
-     * @param ContentType $contentType
+     * @param  ContentType  $contentType
      * @return array<string, FieldDefinition>
      */
     public function getFieldMapForContentType(string $contentType): array
@@ -47,7 +47,7 @@ final class BlueprintRepository
     }
 
     /**
-     * @param ContentType $contentType
+     * @param  ContentType  $contentType
      */
     public function hasField(string $contentType, string $handle): bool
     {
@@ -57,7 +57,7 @@ final class BlueprintRepository
     }
 
     /**
-     * @param ContentType $contentType
+     * @param  ContentType  $contentType
      */
     public function getField(string $contentType, string $handle): ?FieldDefinition
     {

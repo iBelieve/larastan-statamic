@@ -23,7 +23,7 @@ final class FieldtypeMapperTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->mapper = new FieldtypeMapper();
+        $this->mapper = new FieldtypeMapper;
     }
 
     #[DataProvider('stringTypeProvider')]

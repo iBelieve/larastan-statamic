@@ -13,7 +13,7 @@ final class BlueprintParserTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->parser = new BlueprintParser();
+        $this->parser = new BlueprintParser;
     }
 
     public function test_parses_blueprint_with_tabs_and_sections(): void
@@ -130,6 +130,6 @@ final class BlueprintParserTest extends TestCase
 
     private function fixturePath(string $relativePath): string
     {
-        return __DIR__ . '/../Fixtures/blueprints/' . $relativePath;
+        return __DIR__.'/../Fixtures/blueprints/'.$relativePath;
     }
 }

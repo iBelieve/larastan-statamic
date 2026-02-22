@@ -34,7 +34,7 @@ final class BlueprintParser
     }
 
     /**
-     * @param array<mixed> $data
+     * @param  array<mixed>  $data
      * @return list<FieldDefinition>
      */
     private function extractFields(array $data): array
@@ -74,7 +74,7 @@ final class BlueprintParser
     /**
      * Extract fields from a tab, which contains sections.
      *
-     * @param array<mixed> $tab
+     * @param  array<mixed>  $tab
      * @return list<FieldDefinition>
      */
     private function extractFieldsFromTab(array $tab): array
@@ -101,7 +101,7 @@ final class BlueprintParser
     }
 
     /**
-     * @param array<mixed> $section
+     * @param  array<mixed>  $section
      * @return list<FieldDefinition>
      */
     private function extractFieldsFromSection(array $section): array
@@ -114,7 +114,7 @@ final class BlueprintParser
     }
 
     /**
-     * @param array<mixed> $fieldList
+     * @param  array<mixed>  $fieldList
      * @return list<FieldDefinition>
      */
     private function parseFieldList(array $fieldList): array
@@ -153,7 +153,6 @@ final class BlueprintParser
             }, ARRAY_FILTER_USE_BOTH);
 
             /** @var array<string, mixed> $config */
-
             $fields[] = new FieldDefinition(
                 handle: $handle,
                 type: $type,

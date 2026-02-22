@@ -10,7 +10,7 @@ namespace IBelieve\LarastanStatamic\Blueprints;
 final class FieldDefinition
 {
     /**
-     * @param FieldConfig $config
+     * @param  FieldConfig  $config
      */
     public function __construct(
         public readonly string $handle,

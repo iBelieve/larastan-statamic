@@ -11,7 +11,7 @@ namespace IBelieve\LarastanStatamic\Blueprints;
 final class BlueprintLocator
 {
     /**
-     * @param list<string> $blueprintPaths
+     * @param  list<string>  $blueprintPaths
      */
     public function __construct(
         private readonly array $blueprintPaths,
@@ -36,7 +36,7 @@ final class BlueprintLocator
     }
 
     /**
-     * @param ContentType $contentType
+     * @param  ContentType  $contentType
      * @return list<BlueprintLocation>
      */
     public function locateForContentType(string $contentType): array
@@ -65,12 +65,12 @@ final class BlueprintLocator
     /**
      * Scan nested directories: {basePath}/{dirName}/{group}/{blueprint}.yaml
      *
-     * @param ContentType $contentType
+     * @param  ContentType  $contentType
      * @return list<BlueprintLocation>
      */
     private function scanDirectory(string $basePath, string $dirName, string $contentType): array
     {
-        $dir = $basePath . '/' . $dirName;
+        $dir = $basePath.'/'.$dirName;
 
         if (! is_dir($dir)) {
             return [];
@@ -88,13 +88,13 @@ final class BlueprintLocator
                 continue;
             }
 
-            $groupDir = $dir . '/' . $group;
+            $groupDir = $dir.'/'.$group;
 
             if (! is_dir($groupDir)) {
                 continue;
             }
 
-            $files = glob($groupDir . '/*.yaml');
+            $files = glob($groupDir.'/*.yaml');
 
             if ($files === false) {
                 continue;
@@ -115,18 +115,18 @@ final class BlueprintLocator
     /**
      * Scan flat directory: {basePath}/{dirName}/{blueprint}.yaml
      *
-     * @param ContentType $contentType
+     * @param  ContentType  $contentType
      * @return list<BlueprintLocation>
      */
     private function scanFlatDirectory(string $basePath, string $dirName, string $contentType): array
     {
-        $dir = $basePath . '/' . $dirName;
+        $dir = $basePath.'/'.$dirName;
 
         if (! is_dir($dir)) {
             return [];
         }
 
-        $files = glob($dir . '/*.yaml');
+        $files = glob($dir.'/*.yaml');
 
         if ($files === false) {
             return [];

@@ -40,7 +40,7 @@ final class GlobalSetFindExtension implements DynamicStaticMethodReturnTypeExten
         return match ($methodReflection->getName()) {
             'find', 'findByHandle' => new UnionType([
                 new ObjectType('Statamic\Globals\GlobalSet'),
-                new NullType(),
+                new NullType,
             ]),
             'findOrFail' => new ObjectType('Statamic\Globals\GlobalSet'),
             default => null,

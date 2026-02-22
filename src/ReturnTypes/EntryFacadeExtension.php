@@ -41,9 +41,9 @@ final class EntryFacadeExtension implements DynamicStaticMethodReturnTypeExtensi
     ): ?Type {
         return match ($methodReflection->getName()) {
             'query' => new ObjectType('Statamic\Stache\Query\EntryQueryBuilder'),
-            'find' => new UnionType([new ObjectType('Statamic\Entries\Entry'), new NullType()]),
+            'find' => new UnionType([new ObjectType('Statamic\Entries\Entry'), new NullType]),
             'findOrFail' => new ObjectType('Statamic\Entries\Entry'),
-            'findByUri' => new UnionType([new ObjectType('Statamic\Entries\Entry'), new NullType()]),
+            'findByUri' => new UnionType([new ObjectType('Statamic\Entries\Entry'), new NullType]),
             'make' => new ObjectType('Statamic\Entries\Entry'),
             default => null,
         };
