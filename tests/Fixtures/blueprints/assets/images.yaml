@@ -1,0 +1,15 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          - handle: alt
+            field:
+              type: text
+          - handle: caption
+            field:
+              type: textarea
+          - handle: photographer
+            field:
+              type: text

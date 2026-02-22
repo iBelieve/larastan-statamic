@@ -1,0 +1,57 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          - handle: body
+            field:
+              type: markdown
+          - handle: featured
+            field:
+              type: toggle
+          - handle: event_date
+            field:
+              type: date
+          - handle: hero_image
+            field:
+              type: assets
+              container: images
+              max_items: 1
+          - handle: gallery
+            field:
+              type: assets
+              container: images
+          - handle: author
+            field:
+              type: users
+              max_items: 1
+          - handle: related_posts
+            field:
+              type: entries
+          - handle: tags
+            field:
+              type: terms
+              taxonomies:
+                - tags
+          - handle: views
+            field:
+              type: integer
+          - handle: rating
+            field:
+              type: float
+          - handle: category
+            field:
+              type: select
+              options:
+                news: News
+                tutorial: Tutorial
+          - handle: content
+            field:
+              type: bard
+          - handle: metadata
+            field:
+              type: grid
+          - handle: template_name
+            field:
+              type: text

@@ -1,0 +1,44 @@
+{
+    "name": "ibelieve/larastan-statamic",
+    "description": "PHPStan/Larastan extension for Statamic CMS - blueprint-aware static analysis",
+    "type": "phpstan-extension",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "phpstan/phpstan": "^2.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.0",
+        "orchestra/testbench": "^9.0",
+        "phpunit/phpunit": "^11.0",
+        "statamic/cms": "^5.0"
+    },
+    "scripts": {
+        "format": "pint",
+        "format:check": "pint --test"
+    },
+    "autoload": {
+        "psr-4": {
+            "IBelieve\\LarastanStatamic\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "IBelieve\\LarastanStatamic\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "phpstan": {
+            "includes": [
+                "extension.neon"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pixelfear/composer-dist-plugin": true
+        }
+    }
+}
