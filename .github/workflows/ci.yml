@@ -67,6 +67,27 @@ jobs:
       - name: Check code style
         run: composer format:check
 
+  test-project-phpstan:
+    name: Test Project - PHPStan
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+
+      - name: Install test project dependencies
+        working-directory: test-project
+        run: composer install --no-interaction --no-progress
+
+      - name: Run PHPStan on test project
+        working-directory: test-project
+        run: vendor/bin/phpstan analyse --no-progress
+
   composer-validate:
     name: Validate composer.json
     runs-on: ubuntu-latest
