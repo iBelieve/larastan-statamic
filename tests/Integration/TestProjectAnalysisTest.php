@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace IBelieve\LarastanStatamic\Tests\Integration;
 
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -13,6 +14,7 @@ use PHPUnit\Framework\TestCase;
  * This test requires the test-project's dependencies to be installed.
  * It will be skipped automatically if they are not.
  */
+#[Group('integration')]
 final class TestProjectAnalysisTest extends TestCase
 {
     private static string $testProjectDir;
